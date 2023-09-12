@@ -60,10 +60,19 @@ exports.config = {
         }]
     ],
 
+
+    // capabilities: [
+    //     {
+    //     browserName: 'chrome', //TODO NEED TO UPDATE CHROME
+    //     port: 5555
+    // }, 
+    // {
+    //     browserName: 'firefox',
+    //     port: 5555
+    // }],
+
+
     capabilities: [{
-        browserName: 'chrome',
-        port: 5555
-    }, {
         browserName: 'firefox',
         port: 5555
     }],
@@ -74,7 +83,7 @@ exports.config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'info',
+    logLevel: 'error',
     //
     // Set specific log levels per logger
     // loggers:
