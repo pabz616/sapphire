@@ -7,6 +7,7 @@ const onProductDetailsPage = require('../page-objects/product-details.page.js')
 const onShoppingCartPage = require('../page-objects/cart.page.js')
 const onShippingInfoPage = require('../page-objects/shipping-info.page.js')
 const onPaymentMethodPage = require('../page-objects/payment-method.page.js')
+const onOrderSuccessPage = require('../page-objects/order-success.page.js')
 
 describe('E2E CHECKOUT FLOW', () => {
     beforeEach(() => {
@@ -29,6 +30,7 @@ describe('E2E CHECKOUT FLOW', () => {
         await onPaymentMethodPage.confirmShippingInfo()
         await onPaymentMethodPage.confirmShippingMethod()
         await onPaymentMethodPage.placeOrder()
+        await onOrderSuccessPage.confirmOrderIsPlaced()
     })
 
     it('Purchase Item After Clicking Ad', async () => {
