@@ -40,7 +40,11 @@ class HomePage {
     //TODO: Write tests for "Flyer" Module
     //TODO: Write tests for "Hot Sellers" Module
     //TODO: Write tests for Footer Module
-
+    
+    //TODO: Test Add To WishList
+    //TODO: Test Add To ProductComparison
+    //TODO: Test Navigate to Product Reviews Page
+    //TODO: Test Add A Review
 };
 
 module.exports = new HomePage();

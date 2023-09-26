@@ -21,7 +21,8 @@ class ShoppingCartPage{
     //TODO: Test Edit Quantity - sql injection
     //TODO: Test Edit Quantity - js injection
 
-    //TODO: Test More Choices Section 
+    //TODO: Test More Choices Section
+    //TODO: Test On Page Refresh, Cart items persist 
 
 
     async proceedToCheckout() {

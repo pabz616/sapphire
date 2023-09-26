@@ -9,8 +9,19 @@ class ProductDetailsPage{
     get shoppingCartLink () {return $('//a[contains(.,"shopping cart")]')}
     get itemAddedAlert () {return $('//div[@role="alert"]')}
 
-     //TODO: Test UI
+    //TODO: Test UI
+    //TODO: Test Product Info Module - View Product Details
+    //TODO: Test Product Info Module - Get More Information
+    //TODO: Test Product Info Module - Read Reviews
+    //TODO: Test Related Products Module - Verify UI
     //TODO: Test Update Item
+    //TODO: Test Update Item - Blank Quantity
+    //TODO: Test Update Item - High Quantity
+    //TODO: Test Update Item - Pasting A Value Not Possible
+    
+    //TODO: Test Update Item - Non-Numeric Input
+    //TODO: Test Add To Whish List
+    //TODO: Test Add To Product Comparison
 
     //FUNCTIONS
     async addItemToCart() {

@@ -3,6 +3,7 @@ const { expect } = require('@wdio/globals')
 //PAGES
 const onHomePage = require('../page-objects/home.page.js')
 const onSearchResultsPage = require('../page-objects/search-results.page.js')
+const onProductListPage = require('../page-objects/product-list.page.js')
 const onProductDetailsPage = require('../page-objects/product-details.page.js')
 const onShoppingCartPage = require('../page-objects/cart.page.js')
 const onShippingInfoPage = require('../page-objects/shipping-info.page.js')
@@ -31,6 +32,7 @@ describe('E2E CHECKOUT FLOW', () => {
         await onPaymentMethodPage.confirmShippingMethod()
         await onPaymentMethodPage.placeOrder()
         await onOrderSuccessPage.confirmOrderIsPlaced()
+        await onOrderSuccessPage.continueShopping()
     })
 
     it('Purchase Item After Clicking Ad', async () => {

@@ -7,16 +7,25 @@ class PaymentMethodPage{
     get placeOrderButton () {return $('//button[contains(@class,"checkout")]')}
 
     //PAYMENT METHOD
-    get elem () {return $('#customer-email') }
+    get sectionTitle () {return $('(//div[@class="step-title"])[3]') }
+    get paymentOption() {return $('//span[contains(.,"Check / Money order")]')}
+    get billingAsShippingToggle () {return $('//input[@name="billing-address-same-as-shipping"]')}
+    get billingAsShippingLabel () {return $('//div[@class="billing-address-same-as-shipping-block field choice"]')}
+    get billingAddressDetailsModule () {return $('//div[@class="billing-address-details"]')}
 
     //ORDER SUMMARY
-    get elem () {return $('#customer-email') }
+    get orderSummaryModule () {return $('opc-block-summary') }
 
     //SHIPPING INFO
-    get elem () {return $('#customer-email') }
+    get shipToModule () {return $('//div[@class="ship-to"]') }
 
     //SHIPPING METHOD
-    get elem () {return $('#customer-email') }
+    get shipMethodModule () {return $('//div[@class="ship-via"]') }
+
+    //DISCOUNT CODE
+    get discountCodeToggle () {return $('#block-discount-heading')}
+    get discountCodeInput () {return $('discount-code')}
+    get discountCodeApplyButton () {return $('//button[contains(@class,"action-apply")]')}
     
     //TODO: Test UI
     //TODOO: Test Shipping Info Form Is Shown If Billing Info != Shipping Info
@@ -32,6 +41,11 @@ class PaymentMethodPage{
     async applyDiscountCode(){}
 
     async placeOrder(){
+        await expect(this.sectionTitle).toBeDisplayed()
+        await expect(this.orderSummaryModule).toBeDisplayed()
+        await expect(this.shipToModule).toBeDisplayed()
+        await expect(this.shipMethodModule).toBeDisplayed()
+        await expect(this.discountCodeToggle).toBeDisplayed()
         await expect(this.placeOrderButton).not.toBeDisabled();
         await this.placeOrderButton.click();
     }
