@@ -22,7 +22,7 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/**/*.js'
+        // ToDo: define location for spec files here
     ],
     // Patterns to exclude.
     exclude: [
@@ -50,32 +50,10 @@ exports.config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
     //
-    services: [
-        ['selenium-standalone', {
-            logPath: './temp',
-            args: {
-                version: "4.4.0",
-                seleniumArgs: ['--host', '127.0.0.1','--port', '5555']
-            },
-        }]
-    ],
-
-
-    // capabilities: [
-    //     {
-    //     browserName: 'chrome', //TODO NEED TO UPDATE CHROME
-    //     port: 5555
-    // }, 
-    // {
-    //     browserName: 'firefox',
-    //     port: 5555
-    // }],
-
-
     capabilities: [{
-        browserName: 'firefox',
-        port: 5555
+        browserName: 'chrome'
     }],
+
     //
     // ===================
     // Test Configurations
@@ -83,7 +61,7 @@ exports.config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'error',
+    logLevel: 'info',
     //
     // Set specific log levels per logger
     // loggers:
@@ -247,7 +225,7 @@ exports.config = {
      * @param {*}       result.result    return object of test function
      * @param {number}  result.duration  duration of test
      * @param {boolean} result.passed    true if test has passed, otherwise false
-     * @param {object}  result.retries   informations to spec related retries, e.g. `{ attempts: 0, limit: 0 }`
+     * @param {object}  result.retries   information about spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
     // afterTest: function(test, context, { error, result, duration, passed, retries }) {
     // },

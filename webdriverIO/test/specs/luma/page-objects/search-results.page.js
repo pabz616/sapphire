@@ -11,6 +11,9 @@ class SearchResultsPage {
         await this.result1.click()
     }
 
+    //TODO: Test UI
+    //TODO: Test UI for item not found
+
 }
 
 module.exports = new SearchResultsPage();

@@ -28,6 +28,14 @@ class HomePage {
         await browser.keys([Key.Enter])
     }
 
+    //TODO: Search by color
+    //TODO: Search by SKU#
+    //TODO: Search by Brand
+    //TODO: Search for invalid items
+    //TODO: Test input boundaries
+    //TODO: Test input validation
+    //TODO: Test for security vulnerabilities
+
     //TODO: Write tests for Navigation Module
     //TODO: Write tests for "Flyer" Module
     //TODO: Write tests for "Hot Sellers" Module
