@@ -1,19 +1,18 @@
 const { expect } = require('@wdio/globals')
+const { usn, pwd, applicant_name, applicant_address, applicant_email, blank_name } = require('../../testdata/data.js')
 
-//PAGES
-const LoginPage = require('../pageobjects/login.page')
-const SecurePage = require('../pageobjects/secure.page')
-const CheckboxesPage = require('../pageobjects/checkboxes.page')
-const DropdownListPage = require('../pageobjects/dropdownlist.page')
-const NumberPickerPage = require('../pageobjects/numberpicker.page')
-const TextInputPage = require('../pageobjects/textinputs.page')
+const LoginPage = require('../../pageobjects/login.page.js')
+const SecurePage = require('../../pageobjects/secure.page.js')
+const CheckboxesPage = require('../../pageobjects/checkboxes.page.js')
+const DropdownListPage = require('../../pageobjects/dropdownlist.page')
+const NumberPickerPage = require('../../pageobjects/numberpicker.page')
+const TextInputPage = require('../../pageobjects/textinputs.page')
 
 //TESTING THE INTERNET HEROKU APPLICATION
-describe('Login application', () => {
+describe('Login on the page', () => {
     it('should login with valid credentials', async () => {
         await LoginPage.open()
-
-        await LoginPage.login('tomsmith', 'SuperSecretPassword!')
+        await LoginPage.login(usn, pwd)
         await expect(SecurePage.flashAlert).toBeExisting()
         await expect(SecurePage.flashAlert).toHaveTextContaining(
             'You logged into a secure area!')
@@ -47,7 +46,7 @@ describe('Dropdowns on the page', () =>{
 })
 
 describe('Number picker on the page', () => {
-    it('should allow user to selelct a number or type one', async() =>{
+    it('should allow user to select a number or type one', async() =>{
         await NumberPickerPage.open()
         await NumberPickerPage.confirm_UI()
         
@@ -72,6 +71,35 @@ describe('Text input fields on the page', () => {
         await browser.url('https://demoqa.com/text-box')
         await browser.pause(2000)
         await TextInputPage.confirm_UI()
-        await TextInputPage.fill_form()
+        await TextInputPage.fill_form(applicant_name, applicant_email, applicant_address)
+        await expect(TextInputPage.submittedDataOutput).toBeDisplayed()
+        await expect(TextInputPage.inputErrorMessage).not.toBeDisplayed()
+    })
+
+    it('should validate if name is missing', async() => {
+        await browser.url('https://demoqa.com/text-box')
+        await browser.pause(2000)
+        await TextInputPage.confirm_UI()
+        await TextInputPage.fill_form(blank_name, applicant_email, applicant_address)
+        //VALIDATION DOES NOT WORK ON THIS SITE
+        await expect(TextInputPage.submittedDataOutput).not.toHaveTextContaining(applicant_name)
+    })
+
+    it('should validate if email format is incorrect', async() => {
+        await browser.url('https://demoqa.com/text-box')
+        await browser.pause(2000)
+        await TextInputPage.confirm_UI()
+        await TextInputPage.fill_form(applicant_name, 'bad_email', applicant_address)
+        //VALIDATION DOES NOT WORK ON THIS SITE
+        await expect(TextInputPage.submittedDataOutput).not.toBeDisplayed()
+    })
+
+    it('should validate if address is missing', async() => {
+        await browser.url('https://demoqa.com/text-box')
+        await browser.pause(2000)
+        await TextInputPage.confirm_UI()
+        await TextInputPage.fill_form(applicant_name, applicant_email, blank_name)
+        //VALIDATION DOES NOT WORK ON THIS SITE
+        await expect(TextInputPage.submittedDataOutput).not.toHaveTextContaining(applicant_address)
     })
 })

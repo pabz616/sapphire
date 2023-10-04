@@ -22,7 +22,7 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/**/**/test.*.js'
+        './test/specs/**/*.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -50,6 +50,10 @@ exports.config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
     //
+    capabilities: [{
+        browserName: 'chrome'
+    }],
+
     //
     // ===================
     // Test Configurations
@@ -119,7 +123,7 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    // reporters: ['spec'],
+    reporters: ['spec'],
 
     
     //

@@ -48,3 +48,4 @@ class NumberPickerPage extends Page {
 };
 
 module.exports = new NumberPickerPage();
+
