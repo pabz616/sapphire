@@ -1,12 +1,12 @@
 const { expect } = require('@wdio/globals')
 const { usn, pwd, applicant_name, applicant_address, applicant_email, blank_name } = require('../../testdata/data.js')
 
-const LoginPage = require('../../pageobjects/login.page.js')
-const SecurePage = require('../../pageobjects/secure.page.js')
-const CheckboxesPage = require('../../pageobjects/checkboxes.page.js')
-const DropdownListPage = require('../../pageobjects/dropdownlist.page')
-const NumberPickerPage = require('../../pageobjects/numberpicker.page')
-const TextInputPage = require('../../pageobjects/textinputs.page')
+const LoginPage = require('./pageobjects/login.page.js')
+const SecurePage = require('./pageobjects/secure.page.js')
+const CheckboxesPage = require('./pageobjects/checkboxes.page.js')
+const DropdownListPage = require('./pageobjects/dropdownlist.page.js')
+const NumberPickerPage = require('./pageobjects/numberpicker.page')
+const TextInputPage = require('./pageobjects/textinputs.page.js')
 
 //TESTING THE INTERNET HEROKU APPLICATION
 describe('Login on the page', () => {
